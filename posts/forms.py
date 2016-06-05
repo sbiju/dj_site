@@ -14,3 +14,9 @@ class PostForm(forms.ModelForm):
             "draft",
             "publish",
         ]
+
+
+class ContactusForm(forms.Form):
+    email = forms.EmailField()
+    full_name = forms.CharField()
+    message = forms.CharField()
