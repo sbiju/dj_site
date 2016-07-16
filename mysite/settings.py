@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'bijuskhr@gmail.com'
-EMAIL_HOST_PASSWORD = '@mariappally'
+EMAIL_HOST_PASSWORD = '@pampady'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'rest_framework',
     'registration',
     'crispy_forms',
     'posts',

@@ -11,9 +11,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.conf import settings
 from django.core.mail import send_mail
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.authentication import SessionAuthentication
 
 from .forms import PostForm, ContactusForm
 from .models import Post
+from .serializers import BlogSerializer
+from .pagination import BlogPagination
+
+
+class BlogViewListApi(generics.ListAPIView):
+    queryset = Post.objects.all()
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = BlogSerializer
+    pagination_class = BlogPagination
 
 
 def post_create(request):
@@ -76,7 +88,7 @@ def post_list(request):
 
     context = {
         "object_list": queryset,
-        "title": "List",
+        "title": "Posts",
         "page_request_var": page_request_var,
         "today": today,
     }

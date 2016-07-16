@@ -7,6 +7,7 @@ from .views import (
     post_update,
     post_delete,
     contact_us,
+    BlogViewListApi,
     )
 
 urlpatterns = [
@@ -16,5 +17,6 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/edit/$', post_update, name='update'),
     url(r'^(?P<slug>[\w-]+)/delete/$', post_delete),
+    url(r'^api/posts/$', BlogViewListApi.as_view(), name='posts_api'),
 
 ]
