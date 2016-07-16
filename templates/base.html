@@ -1,25 +1,6 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
-<style>
 
-.navbar-inverse {
-background-image: linear-gradient(to bottom,#3c3c3c 0,#63B44A 100%);
-}
-
-h1 {
-    color: #E4DADA;
-}
-
-body {
-    background: #2C5139!important;
-    border: 0;
-    font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    color: #41DE54!important;
-    line-height: 22px;
-    font-style: italic;
-}
-
-</style>
 <html>
 <head>
 <title>{% block head_title %}Blog Kerala{% endblock head_title %}</title>
@@ -27,12 +8,13 @@ body {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='{% static "css/static.css" %}' />
 <link rel='stylesheet' href='{% static "css/style.css" %}' />
     {% include 'navbar.html' %}
 
 </head>
-<body>
+<body background="{% static 'img/bgd.jpg' %}">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
