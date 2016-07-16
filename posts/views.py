@@ -131,7 +131,7 @@ def contact_us(request):
         form_full_name = form.cleaned_data.get("full_name")
         subject = 'Site contact form'
         from_email = settings.EMAIL_HOST_USER
-        to_email = [from_email, 'sbijum88@gmail.com']
+        to_email = [from_email]
         contact_message = "%s/%s via %s"%(
                 form_full_name,
                 form_message,
