@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'posts',
 ]
 
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
