@@ -14,6 +14,8 @@ from django.core.mail import send_mail
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.authentication import SessionAuthentication
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from .forms import PostForm, ContactusForm
 from .models import Post
@@ -21,11 +23,16 @@ from .serializers import BlogSerializer
 from .pagination import BlogPagination
 
 
-class BlogViewListApi(generics.ListAPIView):
+class BlogViewListApiView(generics.ListAPIView):
     queryset = Post.objects.all()
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = BlogSerializer
     pagination_class = BlogPagination
+
+
+class BlogRetrieveApiView(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = BlogSerializer
 
 
 def post_create(request):
@@ -103,7 +110,7 @@ def post_update(request, slug=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, "<a href='#'>Item</a> Saved", extra_tags='html_safe')
+        messages.success(request, 'Post updated')
         return HttpResponseRedirect(instance.get_absolute_url())
 
     context = {

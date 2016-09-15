@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils import timezone
-
 from django.utils.text import slugify
 
 
@@ -21,13 +20,6 @@ def upload_location(instance, filename):
     except:
         PostModel.objects.last() == 0
         new_id = 1
-    """
-    instance.__class__ gets the model Post. We must use this method because the model is defined below.
-    Then create a queryset ordered by the "id"s of each object, 
-    Then we get the last object in the queryset with `.last()`
-    Which will give us the most recently created Model instance
-    We add 1 to it, so we get what should be the same id as the the post we are creating.
-    """
     return "%s/%s" %(new_id, filename)
 
 

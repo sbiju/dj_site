@@ -23,13 +23,13 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-           <ul class="nav navbar-nav navbar-right pull-right">
+         <ul class="nav navbar-nav navbar-right pull-right">
                 <li><a href="{% url 'posts:posts_api' %}">Rest Api View</a> </li>
          {% if request.user.is_authenticated %}
                <li><a href="{% url 'auth_logout' %}">Logout</a> </li>
                {% else %}
                <li><a href="{% url 'registration_register' %}">Register</a> </li>
-            {% endif %}
+         {% endif %}
           </ul>
 
        {% if not request.user.is_authenticated %}

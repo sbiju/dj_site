@@ -7,7 +7,8 @@ from .views import (
     post_update,
     post_delete,
     contact_us,
-    BlogViewListApi,
+    BlogViewListApiView,
+    BlogRetrieveApiView,
     )
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/edit/$', post_update, name='update'),
     url(r'^(?P<slug>[\w-]+)/delete/$', post_delete),
-    url(r'^api/posts/$', BlogViewListApi.as_view(), name='posts_api'),
+    url(r'^api/posts/$', BlogViewListApiView.as_view(), name='posts_api'),
+    url(r'^api/posts/(?P<pk>\d+)/$', BlogRetrieveApiView.as_view(), name='detail_api'),
 
 ]
